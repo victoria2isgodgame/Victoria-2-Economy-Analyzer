@@ -381,33 +381,40 @@ public class Report {
             if (object.contains("size")) {
                 popCount++;
                 int popSize = object.getInt("size");
+                
                 owner.addPopulation(popSize * 4, object.name);
                 owner.addLiteracy(popSize * 4, (float)object.getDouble("literacy"));
                 if (ReportHelpers.POPS_RGO.contains(object.name)) {
                     owner.workforceRGO += popSize;
                 } else if (ReportHelpers.POPS_FACTORY.contains(object.name)) {
                     owner.workforceFactory += popSize;
-                } else if (ReportHelpers.POPS_ARTISANS.contains(object.name) && object.containsValue("production_type")) {
-
-                    GenericObject stockpile = object.getChild("stockpile");
-                    if (stockpile != null) {
-                        for (ObjectVariable good : stockpile.values) {
-                            owner.addIntermediate(findProduct(good.getName()), Float.parseFloat(good.getValue()));
+                } else if (ReportHelpers.POPS_ARTISANS.contains(object.name)) {
+                	if(object.containsValue("production_type"))
+                	{
+                		GenericObject stockpile = object.getChild("stockpile");
+                        if (stockpile != null) {
+                            for (ObjectVariable good : stockpile.values) {
+                                owner.addIntermediate(findProduct(good.getName()), Float.parseFloat(good.getValue()));
+                            }
                         }
-                    }
+                	}
+                    
                 }
             } else {
                 if (object.name.equalsIgnoreCase("rgo")) {
+                	int popSize = ReportHelpers.getEmployeeCount(object);
                     //exact rgo output is not shown, we can guess based on last_income
                     Product output = findProduct(object.getString("goods_type"));
                     double lastIncome = object.getDouble("last_income") / 1000;
 
                     // gold income calculation
                     if (output.getName().equalsIgnoreCase("precious_metal"))
+                    {
                         owner.addGoldIncome((float) lastIncome);
-
-                    //count RGO employees
-                    owner.addEmploymentRgo(ReportHelpers.getEmployeeCount(object));
+                        
+                    }
+                    	
+                    owner.addEmploymentRgo(popSize);
 
                 }
 

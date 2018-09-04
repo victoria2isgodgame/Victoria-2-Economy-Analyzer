@@ -11,8 +11,12 @@
 3. ViiEA.JAR 파일을 실행합니다.
 
 
+## 다음 업데이트 예고
 
-
+1. 보다 현실적인 수치를 위한 곱하기 상수 조절 기능 
+기본값: (1파운드 = 10000파운드) (1일 -> 365일)
+2. 무역품별로 년도 그래프 추가.
+생산점유율, 소비점유율 등
 
 
 
@@ -21,7 +25,7 @@
 
 # Victoria II Economy Analyzer
 
-Based on old [Nashetovich's code](http://oldforum.paradoxplaza.com/forum/showthread.php?715468) with minor changes, 
+Based on old [Nashetovich's code](http://oldforum.paradoxplaza.com/forum/showthread.php?715468) [aekrylov](https://github.com/aekrylov/vic2_economy_analyzer) with minor changes, 
  so now it works with Java 8 and higher.
 
 ## Usage

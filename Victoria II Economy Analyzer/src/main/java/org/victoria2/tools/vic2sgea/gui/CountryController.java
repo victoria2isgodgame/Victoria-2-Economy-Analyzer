@@ -151,7 +151,7 @@ public class CountryController extends ChartsController {
 						country.getPopulation("slaves") * 1f / country.getPopulation() * 100),
 				country.getPopulation("slaves")));
 
-		addChart(slices, "세부 계종", onEnter, onClick);
+		addChart(slices, "세부 계층", onEnter, onClick);
 
 		long totalworkforce = country.getWorkforceFactory() + country.getWorkforceRgo();
 		slices = new ArrayList<>();
