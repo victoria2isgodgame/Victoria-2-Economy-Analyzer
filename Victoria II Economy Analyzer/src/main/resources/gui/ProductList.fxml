@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="600.0" prefWidth="1150.0"
+            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+            fx:controller="org.victoria2.tools.vic2sgea.gui.ProductListController">
+    <ToggleButton layoutX="10" text="미생산 품목 숨기기" fx:id="btnHideZeros"/>
+    <TableView fx:id="productsTable" tableMenuButtonVisible="true"
+               AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="50"
+               AnchorPane.leftAnchor="0">
+        <columns>
+            <TableColumn prefWidth="75.0" text="품목" fx:id="colName"/>
+            <TableColumn prefWidth="85.0" text="총 공급" fx:id="colRealSupply"/>
+            <TableColumn prefWidth="85.0" text="실 공급" fx:id="colActualSupply"/>
+            <TableColumn prefWidth="85" text="소비" fx:id="colConsumption"/>
+            <TableColumn prefWidth="85" text="수요" fx:id="colAffordable"/>
+            <TableColumn prefWidth="90" text="최대 수요" fx:id="colMaxDemand"/>
+            <TableColumn prefWidth="90" text="기본 가격(£)" fx:id="colBasePrice"/>
+            <TableColumn prefWidth="90" text="최소 가격(£)*" fx:id="colMinPrice"/>
+            <TableColumn prefWidth="90" text="최대 가격(£)*" fx:id="colMaxPrice"/>
+            <TableColumn prefWidth="90" text="시장 가격(£)" fx:id="colPrice"/>
+            <TableColumn prefWidth="30" text="동향" fx:id="colTrend"/>
+            <TableColumn prefWidth="100" text="과잉생산률(%)" fx:id="colOverproduced"/>
+            <TableColumn prefWidth="100" text="인플레이션(%)" fx:id="colInflation"/>
+        </columns>
+    </TableView>
+
+</AnchorPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.111"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.victoria2.tools.vic2sgea.gui.InformationController">
+	<AnchorPane>
+
+		<GridPane hgap="0" vgap="0" AnchorPane.bottomAnchor="14"
+			AnchorPane.leftAnchor="14" AnchorPane.rightAnchor="14"
+			AnchorPane.topAnchor="14">
+			<Label text="빅토리아 2 경제 분석기" GridPane.rowIndex="0"
+				GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"
+				GridPane.halignment="LEFT" textAlignment="LEFT">
+				<font>
+					<Font size="14.0" />
+				</font>
+			</Label>
+			<Label text="버전:    0.12" GridPane.rowIndex="1"
+				GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"
+				GridPane.halignment="LEFT" textAlignment="LEFT">
+				<font>
+					<Font size="12.0" />
+				</font>
+			</Label>
+			<Label text="배포일:   2018.08.28" GridPane.rowIndex="2"
+				GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"
+				GridPane.halignment="LEFT" textAlignment="LEFT">
+				<font>
+					<Font size="12.0" />
+				</font>
+			</Label>
+			<Label fx:id="labelLicense0" GridPane.rowIndex="3"
+				GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"
+				GridPane.halignment="LEFT" textAlignment="RIGHT">
+			</Label>
+			<Label fx:id="labelLicense1" GridPane.rowIndex="4"
+				GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"
+				GridPane.halignment="LEFT" textAlignment="RIGHT">
+			</Label>
+			<Label fx:id="labelLicense2" GridPane.rowIndex="5"
+				GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"
+				GridPane.halignment="LEFT" textAlignment="RIGHT">
+			</Label>
+			<Label fx:id="labelLicense3" GridPane.rowIndex="6"
+				GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"
+				GridPane.halignment="LEFT" textAlignment="RIGHT">
+			</Label>
+		</GridPane>
+	</AnchorPane>
+</VBox>

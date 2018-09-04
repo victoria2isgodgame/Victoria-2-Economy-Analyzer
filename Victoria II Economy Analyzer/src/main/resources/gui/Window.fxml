@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.victoria2.tools.vic2sgea.gui.FilePrompt?>
+<?import javafx.scene.text.Font?>
+<VBox id="idControl" xmlns="http://javafx.com/javafx/8.0.111"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.victoria2.tools.vic2sgea.gui.WindowController">
+	<AnchorPane>
+		<MenuBar fx:id="headerMenu" AnchorPane.bottomAnchor="14"
+			AnchorPane.leftAnchor="14" AnchorPane.rightAnchor="14"
+			AnchorPane.topAnchor="14">
+			<Menu text="파일">
+				<MenuItem text="새로만들기" onAction="#onMenuNew" />
+				<MenuItem text="저장" onAction="#onMenuSave" />
+				<MenuItem text="불러오기" onAction="#onMenuLoad" />
+				<MenuItem text="종료" onAction="#exit" />
+			</Menu>
+			<Menu text="도구">
+				<MenuItem text="Set active watcher..."
+					onAction="#onSetActiveWatcher" />
+			</Menu>
+			<Menu text="도움말">
+				<MenuItem text="프로그램 정보" onAction="#onInformation" />
+			</Menu>
+		</MenuBar>
+		<Button fx:id="btnMinimize" AnchorPane.rightAnchor="72"
+			AnchorPane.topAnchor="14" prefWidth="30" prefHeight="27.0" text="🗕"
+			onAction="#OnMinimize" />
+		<Button fx:id="btnMaximize" AnchorPane.rightAnchor="43"
+			AnchorPane.topAnchor="14" prefWidth="30" prefHeight="27.0" text="🗖"
+			onAction="#OnMaximize" />
+		<Button AnchorPane.rightAnchor="14" AnchorPane.topAnchor="14"
+			prefWidth="30" prefHeight="27.0" text="🗙" onAction="#exit" />
+	</AnchorPane>
+
+
+	<AnchorPane VBox.vgrow="ALWAYS">
+		<VBox spacing="3" AnchorPane.bottomAnchor="14"
+			AnchorPane.leftAnchor="14" AnchorPane.rightAnchor="14"
+			AnchorPane.topAnchor="14">
+
+			<GridPane fx:id="headerPane" hgap="3" vgap="3">
+
+
+				<FilePrompt labelText="게임 경로" fx:id="fpGamePath"
+					promptType="DIR" GridPane.rowIndex="1" GridPane.columnIndex="1"
+					GridPane.hgrow="ALWAYS" />
+
+				<FilePrompt labelText="모드 경로" fx:id="fpModPath"
+					promptType="DIR" GridPane.rowIndex="2" GridPane.columnIndex="1"
+					GridPane.hgrow="ALWAYS" />
+
+				<Button fx:id="btnLoad" defaultButton="true"
+					mnemonicParsing="false" onAction="#onMenuLoad" prefWidth="86.0"
+					text="불러오기" GridPane.columnIndex="0" GridPane.rowIndex="0"
+					GridPane.rowSpan="2" />
+
+				<Button fx:id="btnGoods" mnemonicParsing="false"
+					onAction="#onGoods" prefWidth="86.0" text="세계 시장"
+					GridPane.columnIndex="0" GridPane.rowIndex="2" />
+			</GridPane>
+
+			<GridPane vgap="1" minHeight="0" maxWidth="Infinity">
+				<Label fx:id="lblStartDate" GridPane.columnIndex="0"
+					GridPane.rowIndex="0" GridPane.hgrow="ALWAYS" />
+				<Label fx:id="lblCurrentDate" GridPane.columnIndex="0"
+					GridPane.rowIndex="1" GridPane.hgrow="ALWAYS" />
+
+				<Label fx:id="lblPlayer" alignment="CENTER_RIGHT"
+					GridPane.rowIndex="0" GridPane.columnIndex="1" />
+				<Label fx:id="lblPopCount" alignment="CENTER_RIGHT"
+					GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+			</GridPane>
+
+			<GridPane>
+				<GridPane fx:id="treegrid" GridPane.rowIndex="0"
+					GridPane.columnIndex="0">
+					<Label text="탐색기" GridPane.rowIndex="0"
+						GridPane.columnIndex="0">
+						<font>
+							<Font size="14.0" />
+						</font>
+					</Label>
+					<TreeView fx:id="mainTree" prefWidth="200"
+						GridPane.rowIndex="1" GridPane.columnIndex="0">
+					</TreeView>
+				</GridPane>
+				<TableView id="table" fx:id="mainTable"
+					GridPane.rowIndex="0" GridPane.columnIndex="1"
+					tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+					<columns>
+						<TableColumn fx:id="colGDPPlace" prefWidth="45"
+							text="순위" />
+						<TableColumn fx:id="colImage" prefWidth="35" text="" />
+						<TableColumn fx:id="colCountry" prefWidth="120"
+							text="국가" />
+						<TableColumn fx:id="colGdp" prefWidth="95.0"
+							text="총 GDP(£)" />
+						<TableColumn fx:id="colGDPPer" prefWidth="100.0"
+							text="1인당 GDP(£)" />
+						<TableColumn fx:id="colGDPPart" prefWidth="85.0"
+							text="GDP 비율(%)" />
+						<TableColumn fx:id="colGovernment" prefWidth="85"
+							text="정부형태" />
+						<TableColumn id="colPopulation" fx:id="colPopulation"
+							prefWidth="100" text="인구(명)" />
+						<TableColumn fx:id="colConsumption" prefWidth="85.0"
+							text="소비" />
+						<TableColumn fx:id="colImport" prefWidth="84.0"
+							text="수입" />
+						<TableColumn fx:id="colExport" prefWidth="85.0"
+							text="수출" />
+						<TableColumn fx:id="colActualSupply" prefWidth="95.0"
+							text="실 공급" />
+						<TableColumn fx:id="colGoldIncome" prefWidth="50.0"
+							text="귀금속 수입" />
+						<TableColumn fx:id="colWorkForceRgo" prefWidth="80.0"
+							text="RGO 인력(명)" />
+						<TableColumn fx:id="colWorkForceFactory"
+							prefWidth="80.0" text="공업 인력(명)" />
+						<TableColumn fx:id="colEmployment" prefWidth="80.0"
+							text="고용 인력(명)" />
+						<TableColumn prefWidth="130.0" text="실업률(%)">
+							<columns>
+								<TableColumn fx:id="colUnemploymentRate" text="RGO" />
+								<TableColumn fx:id="colUnemploymentRateFactory"
+									text="공업" />
+							</columns>
+						</TableColumn>
+					</columns>
+				</TableView>
+			</GridPane>
+
+
+			<Label alignment="CENTER" prefHeight="21.0" prefWidth="1366.0"
+				text="빅토리아 2 경제 분석기 v0.13" />
+			<Label alignment="CENTER" prefHeight="21.0" prefWidth="1369.0"
+				text="본 소프트웨어는 BSD 라이선스로 배포되었으며 자유롭게 수정 및 배포가 가능합니다." />
+		</VBox>
+
+		<StackPane fx:id="progressWrap" visible="false"
+			AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0"
+			AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
+			<ProgressIndicator fx:id="piLoad" progress="-0.03"
+				maxWidth="152.0" StackPane.alignment="CENTER" />
+		</StackPane>
+
+	</AnchorPane>
+</VBox>

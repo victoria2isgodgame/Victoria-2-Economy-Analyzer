@@ -1,0 +1,67 @@
+﻿
+aeroplanes;비행기
+ammunition;탄약
+artillery;대포
+automobiles;자동차
+barrels;전차
+canned_food;통조림
+cattle;가축
+cement;시멘트
+clipper_convoy;범선
+coal;석탄
+coffee;커피
+cotton;목화
+dye;염료
+electric_gear;전기 부품
+explosives;폭약
+fabric;면직물
+fertilizer;비료
+fish;생선
+fruit;과일
+fuel;연료
+furniture;가구
+glass;유리
+grain;곡물
+iron;철
+liquor;음료
+lumber;가공 목재
+luxury_clothes;고급 의류
+luxury_furniture;고급 가구
+machine_parts;기계 부품
+oil;석유
+opium;아편
+paper;종이
+precious_goods;특산품
+precious_metal;귀금속
+radio;라디오
+regular_clothes;의류
+rubber;고무
+silk;비단
+small_arms;소형 화기
+steamer_convoy;증기선
+steel;강철
+sulphur;유황
+tea;차
+telephones;전화기
+timber;나무
+tobacco;담배
+total_pounds;Total
+tropical_wood;열대 목재
+wine;와인
+wool;양모
+print;인쇄물
+spices;향신료
+pharmaceuticals;약품
+shoes;신발
+boots;부츠
+sugar;설탕
+cigarettes;담배
+cigars;시가
+financial_services;금융 서비스
+electric_power;전력
+shares;주식
+gunpowder;화약
+bronze;청동
+regular_furniture;가구
+lead;납
+copper;구리

@@ -1,0 +1,142 @@
+/* .default-color0.chart-series-line {-fx-stroke: #E5C444;}
+.default-color1.chart-series-line {-fx-stroke: #FF91A4;}
+.default-color2.chart-series-line {-fx-stroke: #49984F;}
+.default-color3.chart-series-line {-fx-stroke: #4169E1;}
+.default-color4.chart-series-line {-fx-stroke: #FBFBDD;}
+.default-color5.chart-series-line {-fx-stroke: #003153;}
+.default-color6.chart-series-line {-fx-stroke: #0082FF;}
+.default-color7.chart-series-line {-fx-stroke: #FF5041;}
+.default-color8.chart-series-line {-fx-stroke: #E67000;}
+.default-color9.chart-series-line {-fx-stroke: #6C3F12;}
+
+.default-color0.chart-line-symbol {-fx-background-color: #E5C444;}
+.default-color1.chart-line-symbol {-fx-background-color: #FF91A4;}
+.default-color2.chart-line-symbol {-fx-background-color: #49984F;}
+.default-color3.chart-line-symbol {-fx-background-color: #4169E1;}
+.default-color4.chart-line-symbol {-fx-background-color: #FBFBDD;}
+.default-color5.chart-line-symbol {-fx-background-color: #003153;}
+.default-color6.chart-line-symbol {-fx-background-color: #0082FF;}
+.default-color7.chart-line-symbol {-fx-background-color: #FF5041;}
+.default-color8.chart-line-symbol {-fx-background-color: #E67000;}
+.default-color9.chart-line-symbol {-fx-background-color: #6C3F12;}*/
+
+
+
+.title {
+	-fx-font-family: "나눔바른고딕";
+	-fx-text-fill: #BECE8B;
+	-fx-font-size: 24pt;
+	-fx-font-weight: bold;
+} 
+.label-gov{
+	-fx-font-family: "나눔바른고딕";
+	-fx-text-fill: #BECE8B;
+	-fx-font-size: 11pt;
+	-fx-font-weight: bold;
+	-fx-text-alignment: center;
+}
+
+.chart {
+    -fx-padding: 0, 0, 0, 0;
+    -fx-background-color: #400000;
+}
+.chart-title{
+	-fx-font-family: "나눔바른고딕";
+	-fx-text-fill: #BECE8B;
+	-fx-font-size: 13pt;
+	-fx-font-weight: bold;
+	-fx-text-alignment: center;
+}
+.chart-plot-background {
+    /*-fx-background-color: white;*/
+    /*-fx-border-color: #BECE8B;*/
+    -fx-border-width: 1px;
+}
+.axis:top {
+    -fx-border-color: transparent;
+}
+
+.axis:right {
+    -fx-border-color: transparent;
+}
+
+.axis:bottom {
+    -fx-border-color: transparent;
+}
+
+.axis:left {
+    -fx-border-color: transparent;
+}
+
+.chart-vertical-grid-lines {
+    /*-fx-stroke: black;*/
+}
+
+.chart-horizontal-grid-lines {
+    /*-fx-stroke: black;*/
+}
+.chart-series-line {    
+    -fx-stroke-width: 3px;
+}
+.split-pane{
+    -fx-background-color: #353434;
+    -fx-foreground-color: #353434;
+}
+.chart-legend {
+	-fx-background-color: #300000;
+	-fx-padding: 5px;
+	-fx-border-color: black;
+	-fx-border-width: 0.5px
+}
+ 
+.chart-legend-item-symbol {
+   -fx-background-radius: 0;
+}
+ 
+.chart-legend-item {
+	-fx-font-family: "나눔바른고딕";
+    -fx-text-fill: #BECE8B;
+}
+
+.axis {
+	-fx-stroke: white;
+	-fx-fill: #BECE8B;
+    -fx-font-size: 10px;
+    -fx-tick-label-fill: #BECE8B;
+    -fx-font-family: "나눔바른고딕";
+}
+
+
+.button { 
+    -fx-border-color: #B2C28B;
+    -fx-border-width: 1px;
+    -fx-background-color: #400000;
+    -fx-text-fill: #B2C28B;
+}
+
+.button:hover {
+    -fx-background-color: derive(#400000 ,30%);
+}
+
+.button:pressed, .button:default:hover:pressed {
+	-fx-background-color: derive(#400000 ,-30%);
+}
+
+.button:focused {
+    -fx-border-color: #B2C28B;
+    -fx-border-width: 1px;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: #B2C28B;
+}
+
+.button:default {
+    -fx-background-color: #400000;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(#400000 ,30%);
+}

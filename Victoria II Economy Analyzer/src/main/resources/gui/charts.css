@@ -1,0 +1,90 @@
+.title {
+	-fx-font-family: "나눔바른고딕";
+	-fx-text-fill: #BECE8B;
+	-fx-font-size: 24pt;
+	-fx-font-weight: bold;
+} 
+.label-gov{
+	-fx-font-family: "나눔바른고딕";
+	-fx-text-fill: #BECE8B;
+	-fx-font-size: 11pt;
+	-fx-font-weight: bold;
+	-fx-text-alignment: center;
+}
+.chartgrid{
+	-fx-border-color: black;
+	-fx-border-width: 0.3px;
+}
+.chart {
+    -fx-padding: 0, 0, 0, 0;
+}
+.chart-title{
+	-fx-font-family: "나눔바른고딕";
+	-fx-text-fill: #BECE8B;
+	-fx-font-size: 13pt;
+	-fx-font-weight: bold;
+	-fx-text-alignment: center;
+}
+.chart-legend {
+	-fx-background-color: #300000;
+	-fx-padding: 5px;
+	-fx-border-color: black;
+	-fx-border-width: 0.5px
+}
+.chart-legend-item {
+	-fx-font-family: "나눔바른고딕";
+    -fx-text-fill: #BECE8B;
+}
+.chart-pie {
+    -fx-border-color: black;
+    -fx-border-width: 0.5px;
+}
+.chart-pie-label-line {
+    -fx-stroke: #000000;
+    -fx-fill: #BECE8B;
+}
+.chart-pie-label {
+	-fx-font-family: "나눔바른고딕";
+	-fx-fill: #BECE8B;
+    -fx-font-size: 8pt;
+} 
+.chart-caption{
+	-fx-font-family: "나눔바른고딕";
+    -fx-text-fill: #BECE8B;
+    -fx-font-size: 9pt;
+    -fx-padding : 5, 5, 5, 5;
+}
+
+.button { 
+    -fx-border-color: #B2C28B;
+    -fx-border-width: 1px;
+    -fx-background-color: #400000;
+    -fx-text-fill: #B2C28B;
+}
+
+.button:hover {
+    -fx-background-color: derive(#400000 ,30%);
+}
+
+.button:pressed, .button:default:hover:pressed {
+	-fx-background-color: derive(#400000 ,-30%);
+}
+
+.button:focused {
+    -fx-border-color: #B2C28B;
+    -fx-border-width: 1px;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: #B2C28B;
+}
+
+.button:default {
+    -fx-background-color: #400000;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(#400000 ,30%);
+}
