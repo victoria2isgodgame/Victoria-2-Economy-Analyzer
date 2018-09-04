@@ -11,6 +11,14 @@
 3. ViiEA.JAR 파일을 실행합니다.
 
 
+
+
+
+
+
+
+
+
 # Victoria II Economy Analyzer
 
 Based on old [Nashetovich's code](http://oldforum.paradoxplaza.com/forum/showthread.php?715468) with minor changes, 
