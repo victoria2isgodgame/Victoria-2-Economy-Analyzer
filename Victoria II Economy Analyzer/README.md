@@ -1,4 +1,17 @@
-# Victoria 2 Savegame Economy Analyzer
+# 빅토리아 2 경제 분석기
+
+원 제작자 소스코드
+[Nashetovich](http://oldforum.paradoxplaza.com/forum/showthread.php?715468)
+[aekrylov](https://github.com/aekrylov/vic2_economy_analyzer)
+
+## 설치 및 실행법
+
+1. [자바 런타임 환경 8](https://java.com/download/)이 설치되어 있지 않다면 설치합니다.
+2. [이 주소](https://github.com/victoria2isgodgame/Victoria-2-Economy-Analyzer/releases)에서 최신버전 JAR 파일을 다운받습니다.
+3. ViiEA.JAR 파일을 실행합니다.
+
+
+# Victoria II Economy Analyzer
 
 Based on old [Nashetovich's code](http://oldforum.paradoxplaza.com/forum/showthread.php?715468) with minor changes, 
  so now it works with Java 8 and higher.
@@ -23,10 +36,3 @@ Check out project wiki for more info.
     
     Please note that setting this value too big can cause errors on some systems.
  
-## To do list:
-
-- [x] Upload jar files
-- [x] Test with different environments
-- [x] Improve architecture and code quality
-- [x] Implement continuous watching for game history
-- [ ] Display or export game history 
