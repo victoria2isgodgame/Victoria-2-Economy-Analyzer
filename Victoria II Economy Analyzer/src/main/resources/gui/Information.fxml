@@ -23,7 +23,7 @@
 					<Font size="14.0" />
 				</font>
 			</Label>
-			<Label text="버전:    0.12" GridPane.rowIndex="1"
+			<Label text="버전:    0.14" GridPane.rowIndex="1"
 				GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"
 				GridPane.halignment="LEFT" textAlignment="LEFT">
 				<font>

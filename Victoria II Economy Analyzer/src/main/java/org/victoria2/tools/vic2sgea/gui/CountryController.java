@@ -74,10 +74,31 @@ public class CountryController extends ChartsController {
 		long middleclass = country.getPopulation("bureaucrats") + country.getPopulation("artisans")
 				+ country.getPopulation("clergymen") + country.getPopulation("clerks")
 				+ country.getPopulation("officers");
-		long underclass =  country.getPopulation("craftsmen") + country.getPopulation("farmers") + country.getPopulation("soldiers")
-				+ country.getPopulation("labourers") + country.getPopulation("serfs") + country.getPopulation("slaves");
+		long underclass = country.getPopulation("craftsmen") + country.getPopulation("farmers")
+				+ country.getPopulation("soldiers") + country.getPopulation("labourers")
+				+ country.getPopulation("serfs") + country.getPopulation("slaves");
 
 		/*
+		*/
+		slices.add(new ChartSlice(String.format("%s(%2.1f%%)", "상류층", upperclass * 1f / country.getPopulation() * 100),
+				upperclass));
+		slices.add(new ChartSlice(String.format("%s(%2.1f%%)", "중산층", middleclass * 1f / country.getPopulation() * 100),
+				middleclass));
+		slices.add(new ChartSlice(String.format("%s(%2.1f%%)", "하류층", underclass * 1f / country.getPopulation() * 100),
+				underclass));
+
+		Consumer<PieChart.Data> onClick = data -> {
+			System.out.println("");
+		};
+
+		Function<PieChart.Data, String> onEnter = data -> {
+			return data.getName();
+		};
+
+		addChart(slices, "계층", onEnter, onClick);
+
+		slices = new ArrayList<>();
+
 		slices.add(new ChartSlice(
 				String.format("%s(%2.1f%%)", "지주",
 						country.getPopulation("aristocrats") * 1f / country.getPopulation() * 100),
@@ -123,37 +144,60 @@ public class CountryController extends ChartsController {
 						country.getPopulation("labourers") * 1f / country.getPopulation() * 100),
 				country.getPopulation("labourers")));
 		slices.add(new ChartSlice(
-				String.format("%s(%2.1f%%)", "농노",
-						country.getPopulation("serfs") * 1f / country.getPopulation() * 100),
+				String.format("%s(%2.1f%%)", "농노", country.getPopulation("serfs") * 1f / country.getPopulation() * 100),
 				country.getPopulation("serfs")));
 		slices.add(new ChartSlice(
 				String.format("%s(%2.1f%%)", "노예",
 						country.getPopulation("slaves") * 1f / country.getPopulation() * 100),
 				country.getPopulation("slaves")));
-*/
-		slices.add(new ChartSlice(
-				String.format("%s(%2.1f%%)", "상류층",
-					upperclass * 1f / country.getPopulation() * 100),
-				upperclass));
-		slices.add(new ChartSlice(
-				String.format("%s(%2.1f%%)", "중산층",
-						middleclass * 1f / country.getPopulation() * 100),
-				middleclass));
-		slices.add(new ChartSlice(
-				String.format("%s(%2.1f%%)", "하류층",
-						underclass * 1f / country.getPopulation() * 100),
-				underclass));
-		
-		Consumer<PieChart.Data> onClick = data -> {
-			System.out.println("");
-		};
 
-		Function<PieChart.Data, String> onEnter = data -> {
-			return data.getName();
-		};
+		addChart(slices, "세부 계종", onEnter, onClick);
 
-		String title = String.format("인구 비율(%%)");
-		addChart(slices, title, onEnter, onClick);
+		long totalworkforce = country.getWorkforceFactory() + country.getWorkforceRgo();
+		slices = new ArrayList<>();
+		slices.add(new ChartSlice(
+				String.format("%s(%2.1f%%)", "RGO", country.getWorkforceRgo() * 1f / totalworkforce * 100),
+				country.getWorkforceRgo()));
+		slices.add(new ChartSlice(
+				String.format("%s(%2.1f%%)", "공장", country.getWorkforceFactory() * 1f / totalworkforce * 100),
+				country.getWorkforceFactory()));
+		addChart(slices, "노동자 비중 (" + String.format("%,d", totalworkforce) + "명)", onEnter, onClick);
+
+		long totalunemployee = country.getWorkforceFactory() + country.getWorkforceRgo() - country.getEmployment();
+		slices = new ArrayList<>();
+		slices.add(new ChartSlice(
+				String.format("%s(%2.1f%%)", "RGO",
+						(country.getWorkforceRgo() - country.getEmploymentRGO()) * 1f / totalunemployee * 100),
+				(country.getWorkforceRgo() - country.getEmploymentRGO())));
+		slices.add(new ChartSlice(
+				String.format("%s(%2.1f%%)", "공장",
+						(country.getWorkforceFactory() - country.getEmploymentFactory()) * 1f / totalunemployee * 100),
+				(country.getWorkforceFactory() - country.getEmploymentFactory())));
+		addChart(slices, "실업자 비중 (" + String.format("%,d", totalunemployee) + "명)", onEnter, onClick);
+
+		long totalfactoryworker = country.getWorkforceFactory();
+		slices = new ArrayList<>();
+		slices.add(new ChartSlice(
+				String.format("%s(%2.1f%%)", "취업자", country.getEmploymentFactory() * 1f / totalfactoryworker * 100),
+				country.getEmploymentFactory()));
+		slices.add(
+				new ChartSlice(
+						String.format("%s(%2.1f%%)", "실업자",
+								(country.getWorkforceFactory() - country.getEmploymentFactory()) * 1f
+										/ totalfactoryworker * 100),
+						(country.getWorkforceFactory() - country.getEmploymentFactory())));
+		addChart(slices, "공장 취업률", onEnter, onClick);
+
+		long totalrgoworker = country.getWorkforceRgo();
+		slices = new ArrayList<>();
+		slices.add(new ChartSlice(
+				String.format("%s(%2.1f%%)", "취업자", country.getEmploymentRGO() * 1f / totalrgoworker * 100),
+				country.getEmploymentRGO()));
+		slices.add(new ChartSlice(
+				String.format("%s(%2.1f%%)", "실업자",
+						(country.getWorkforceRgo() - country.getEmploymentRGO()) * 1f / totalrgoworker * 100),
+				(country.getWorkforceRgo() - country.getEmploymentRGO())));
+		addChart(slices, "RGO 취업률", onEnter, onClick);
 
 	}
 
@@ -167,7 +211,8 @@ public class CountryController extends ChartsController {
 		ImageView flag1 = new ImageView(
 				getClass().getResource("/flags/" + country.getTag() + country.getFlag() + ".png").toString());
 		Label government = new Label(country.getGovernment() + "\n인구: " + String.format("%,d", country.getPopulation())
-				+ "명\n1인당 GDP: " + String.format("%,f", country.getGdpPerCapita()) + "£\n" + "식자율: " + String.format("%2.2f%%", country.getLiteracy()));
+				+ "명\n1인당 GDP: " + String.format("%,f", country.getGdpPerCapita()) + "£\n" + "식자율: "
+				+ String.format("%2.2f%%", country.getLiteracy()));
 		government.setAlignment(Pos.CENTER);
 		government.getStyleClass().add("label-gov");
 		Button historyButton = new Button("통계");
@@ -180,9 +225,10 @@ public class CountryController extends ChartsController {
 		GridPane.setHalignment(flag0, HPos.LEFT);
 		GridPane.setHalignment(flag1, HPos.RIGHT);
 		GridPane.setHalignment(government, HPos.CENTER);
-		GridPane.setHalignment(historyButton,  HPos.CENTER);
-		
-		historyButton.addEventHandler(ActionEvent.ACTION, e -> Main.showCountryHistoryWindow(WindowController.history, country.getOfficialName()));
+		GridPane.setHalignment(historyButton, HPos.CENTER);
+
+		historyButton.addEventHandler(ActionEvent.ACTION,
+				e -> Main.showCountryHistoryWindow(WindowController.history, country.getOfficialName()));
 
 		addUniChart(EconomySubject::getGdp, "GDP");
 		addUniChart(EconomySubject::getBought, "소비");
@@ -194,7 +240,18 @@ public class CountryController extends ChartsController {
 		addUniChart(EconomySubject::getImported, "수입");
 
 		addPopChart();
-		
+
+		GridPane pane = new GridPane();
+		pane.setHgap(5);
+		pane.setVgap(5);
+		grid.add(pane, 0, 1);
+		GridPane.setHalignment(pane, HPos.CENTER);
+		Button economy = new Button("경제");
+		Button pop = new Button("국민");
+		economy.addEventHandler(ActionEvent.ACTION, e -> setPage(0));
+		pop.addEventHandler(ActionEvent.ACTION, e -> setPage(1));
+		pane.add(economy, 0, 0);
+		pane.add(pop, 1, 0);
 
 	}
 }

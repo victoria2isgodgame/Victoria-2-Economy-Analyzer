@@ -88,9 +88,17 @@ public class Country extends EconomySubject implements Comparable<Country> {
 	public ProductStorage findStorage(Product product) {
 		return storageMap.computeIfAbsent(product.getName(), k -> new ProductStorage(product));
 	}
-
+	
 	public long getEmployment() {
+		return employmentRGO + employmentFactory;
+	}
+
+	public long getEmploymentRGO() {
 		return employmentRGO;
+	}
+	
+	public long getEmploymentFactory() {
+		return employmentFactory;
 	}
 
 	public float getGdpPerCapita() {
@@ -157,7 +165,7 @@ public class Country extends EconomySubject implements Comparable<Country> {
 	}
 
 	public float getUnemploymentRateRgo() {
-		return (float) ((workforceRGO - employmentRGO) * 4. / population * 100);
+		return (float) ((workforceRGO - employmentRGO) / (float) workforceRGO * 100);
 	}
 
 	public float getUnemploymentRateFactory() {

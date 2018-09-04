@@ -136,7 +136,7 @@
 
 
 			<Label alignment="CENTER" prefHeight="21.0" prefWidth="1366.0"
-				text="빅토리아 2 경제 분석기 v0.13" />
+				text="빅토리아 2 경제 분석기 v0.14" />
 			<Label alignment="CENTER" prefHeight="21.0" prefWidth="1369.0"
 				text="본 소프트웨어는 BSD 라이선스로 배포되었으며 자유롭게 수정 및 배포가 가능합니다." />
 		</VBox>
